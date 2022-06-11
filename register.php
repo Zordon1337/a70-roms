@@ -6,7 +6,7 @@
 	{
 		$everything_OK=true;
 		
-		$username = $_POST['nick'];
+		$username = $_POST['username'];
 		
 		if ((strlen($username)<3) || (strlen($username)>20))
 		{
@@ -31,7 +31,7 @@
 		$pass1 = $_POST['pass1'];
 		$pass2 = $_POST['pass2'];
 		
-		if ((strlen($haslo1)<8) || (strlen($haslo1)>20))
+		if ((strlen($pass1)<8) || (strlen($pass1)>20))
 		{
 			$everything_OK=false;
 			$_SESSION['e_pass']="Password must have 3-30 characters";
@@ -45,18 +45,7 @@
 
 		$pass_hash = password_hash($pass1, PASSWORD_DEFAULT);
 				
-		
-		$secret = "";
-		
-		$check = file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret='.$sekret.'&response='.$_POST['g-recaptcha-response']);
-		
-		$answer = json_decode($check);
-		
-		if ($answer->success==false)
-		{
-			$everything_OK=false;
-			$_SESSION['e_bot']="We must verify that you are not a bot!";
-		}		
+				
 		
 		$_SESSION['fr_username'] = $username;
 		$_SESSION['fr_email'] = $email;
@@ -76,7 +65,7 @@
 			else
 			{
 				
-				$rezultat = $polaczenie->query("SELECT id FROM uzytkownicy WHERE email='$email'");
+				$rezultat = $polaczenie->query("SELECT id FROM users WHERE email='$email'");
 				
 				if (!$rezultat) throw new Exception($polaczenie->error);
 				
@@ -88,7 +77,7 @@
 				}		
 
 				
-				$rezultat = $polaczenie->query("SELECT id FROM uzytkownicy WHERE user='$username'");
+				$rezultat = $polaczenie->query("SELECT id FROM users WHERE user='$username'");
 				
 				if (!$rezultat) throw new Exception($polaczenie->error);
 				
@@ -103,7 +92,7 @@
 				{
 					
 					
-					if ($polaczenie->query("INSERT INTO uzytkownicy VALUES (NULL, '$username', '$haslo_hash', '$email', 100, 100, 100, 14)"))
+					if ($polaczenie->query("INSERT INTO users VALUES (NULL, '$username', '$pass_hash', '$email')"))
 					{
 						$_SESSION['udanarejestracja']=true;
 						header('Location: data.php');
@@ -136,8 +125,7 @@
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 	<title>Galaxy a70 roms</title>
-	<script src='https://www.google.com/recaptcha/api.js'></script>
-    <link rel="stylesheet" href="http://game.azordon.cf/style.css">
+    <link rel="stylesheet" href="/style.css">
 	
 	<style>
 		.error
@@ -210,13 +198,6 @@
 		?>" name="pass2" /><br />
 		
 		
-        <div style="text-align: center;">
-        <div
-             class="g-recaptcha" 
-             data-sitekey="6LdrVF0gAAAAAOVQrRlu2JlmM9-0lf0ODqFWZf_q" 
-             style="display: inline-block;"
-        ></div>
-        </div>
 		
 		
 		<br />
