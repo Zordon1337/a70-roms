@@ -173,7 +173,7 @@
 			}
 		?>
 		
-		Twoje hasło: <br /> <input type="password"  value="<?php
+		Your password: <br /> <input type="password"  value="<?php
 			if (isset($_SESSION['fr_pass1']))
 			{
 				echo $_SESSION['fr_pass1'];
@@ -189,7 +189,7 @@
 			}
 		?>		
 		
-		Powtórz hasło: <br /> <input type="password" value="<?php
+		Retype the password: <br /> <input type="password" value="<?php
 			if (isset($_SESSION['fr_pass2']))
 			{
 				echo $_SESSION['fr_pass2'];
