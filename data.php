@@ -19,14 +19,13 @@
 <?php
 
    echo "<p>Hello ".$_SESSION['user']."!<p>";
-   echo "<a href="logout.php">log off<a>
-   
-   
-   
    echo "<p><b>Email</b>: ".$_SESSION['email']."<p>";
    
 
 ?>
+<form action="logout.php">
+<input type="submit" Value="log out" />
+</form>
 </body>
 
 
