@@ -106,7 +106,7 @@
 					if ($polaczenie->query("INSERT INTO uzytkownicy VALUES (NULL, '$username', '$haslo_hash', '$email', 100, 100, 100, 14)"))
 					{
 						$_SESSION['udanarejestracja']=true;
-						header('Location: welcome.php');
+						header('Location: data.php');
 					}
 					else
 					{
