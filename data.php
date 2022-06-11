@@ -2,7 +2,7 @@
 
 	session_start();
 	
-	if (!isset($_SESSION['zalogowany']))
+	if (!isset($_SESSION['logged']))
 	{
 		header('Location: index.php');
 		exit();
@@ -19,6 +19,7 @@
 <?php
 
    echo "<p>Hello ".$_SESSION['user']."!<p>";
+   echo "<a href="logout.php">log off<a>
    
    
    
