@@ -13,15 +13,19 @@
 <!DOCTYPE HTML>
 <HTML>
 <head>
-<link rel="stylesheet" href="http://game.azordon.cf/style.css">
+<link rel="stylesheet" href="/style.css">
 <title>Main.php</title>
 </head>
 <body class="body">
     <form action="login.php" method="post">
-        login:<br /> <input type="text" name="Username" /> <br />
-        hasło: <br /> <input type="password" name="Password" /> <br /><br />
+        Username:<br /> <input type="text" name="Username" /> <br />
+        Password: <br /> <input type="Password" name="Password" /> <br /><br />
         <input type="submit" value="Login in" />
     </form>
+	
+	<form action="register.php">
+	<input type="submit" href="register.php" value="Register [BETA]" />
+	</form>
 </body>
 
 
