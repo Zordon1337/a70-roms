@@ -30,9 +30,10 @@
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 	<title>Galaxy a70 roms</title>
+	<link rel="stylesheet" href="/style.css">
 </head>
 
-<body>
+<body class="body">
 	
 	Thank you for registering here :)<br /><br />
 	
