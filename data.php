@@ -12,7 +12,7 @@
 <!DOCTYPE HTML>
 <HTML>
 <head>
-<link rel="stylesheet" href="http://game.azordon.cf/style.css">
+<link rel="stylesheet" href=/style.css">
 <title></title>
 </head>
 <body class="body">
