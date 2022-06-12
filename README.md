@@ -11,4 +11,4 @@ Galaxy a70 custom roms list
 - [x] translate pages
 - [x] add css
 - [x] log out system
-- [ ] add roms list
+- [x] add roms list
