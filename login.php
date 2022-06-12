@@ -5,7 +5,7 @@ i'm to lazy to translate prefixes lol
 */
 	session_start();
 	
-	if ((!isset($_POST['login'])) || (!isset($_POST['pass'])))
+	if ((!isset($_POST['Username'])) || (!isset($_POST['Password'])))
 	{
 		header('Location: index.php');
 		exit();
@@ -21,35 +21,38 @@ i'm to lazy to translate prefixes lol
 	}
 	else
 	{
-		$login = $_POST['login'];
-		$haslo = $_POST['haslo'];
+		$email = $_POST['email'];
+		$Username = $_POST['Username'];
+		$Password = $_POST['Password'];
+		$email = $_POST['email'];
 		
-		$login = htmlentities($login, ENT_QUOTES, "UTF-8");
-		$haslo = htmlentities($haslo, ENT_QUOTES, "UTF-8");
+		$Username = htmlentities($Username, ENT_QUOTES, "UTF-8");
+		$Password = htmlentities($Password, ENT_QUOTES, "UTF-8");
 	
-		if ($rezultat = @$polaczenie->query(
-		sprintf("SELECT * FROM uzytkownicy WHERE user='%s' AND pass='%s'",
-		mysqli_real_escape_string($polaczenie,$login),
-		mysqli_real_escape_string($polaczenie,$haslo))))
+		if ($result = @$polaczenie->query(
+		sprintf("SELECT * FROM users WHERE user='%s' AND pass='%s'",
+		mysqli_real_escape_string($polaczenie,$Username),
+		mysqli_real_escape_string($polaczenie,$Password))))
 		{
-			$ilu_userow = $rezultat->num_rows;
+			$ilu_userow = $result->num_rows;
 			if($ilu_userow>0)
 			{
-				$_SESSION['zalogowany'] = true;
+				$_SESSION['logged'] = true;
 				
-				$wiersz = $rezultat->fetch_assoc();
+				$wiersz = $result->fetch_assoc();
 				$_SESSION['id'] = $wiersz['id'];
-				$_SESSION['username'] = $wiersz['username'];
+				$_SESSION['Username'] = $wiersz['Username'];
+				$_SESSION['Password'] = $wiersz['Password'];
 				$_SESSION['email'] = $wiersz['email'];
 
 				
-				unset($_SESSION['blad']);
-				$rezultat->free_result();
+				unset($_SESSION['error']);
+				$result->free_result();
 				header('Location: data.php');
 				
 			} else {
 				
-				$_SESSION['blad'] = '<span style="color:red">Nieprawidłowy login lub hasło!</span>';
+				$_SESSION['error'] = '<span style="color:red">Nieprawidłowy username lub hasło!</span>';
 				header('Location: index.php');
 				
 			}
