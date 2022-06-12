@@ -34,7 +34,7 @@
 		if ((strlen($pass1)<8) || (strlen($pass1)>20))
 		{
 			$everything_OK=false;
-			$_SESSION['e_pass']="Password must have 3-30 characters";
+			$_SESSION['e_pass']="Password must have 8-30 characters";
 		}
 		
 		if ($pass1!=$pass2)
@@ -43,7 +43,6 @@
 			$_SESSION['e_pass']="Entered passwords differs";
 		}	
 
-		$pass_hash = password_hash($pass1, PASSWORD_DEFAULT);
 				
 				
 		
@@ -92,7 +91,7 @@
 				{
 					
 					
-					if ($polaczenie->query("INSERT INTO users VALUES (NULL, '$username', '$pass_hash', '$email')"))
+					if ($polaczenie->query("INSERT INTO users VALUES (NULL, '$username', '$pass1', '$email')"))
 					{
 						$_SESSION['udanarejestracja']=true;
 						header('Location: data.php');
