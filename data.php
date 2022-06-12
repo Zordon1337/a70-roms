@@ -12,25 +12,16 @@
 <!DOCTYPE HTML>
 <HTML>
 <head>
-<link rel="stylesheet" href=/style.css">
 <title></title>
+<link rel="stylesheet" href="/style.css">
 </head>
 <body class="body">
 <?php
 
-   echo "<p>Hello ".$_SESSION['user']."!<p>";
-   echo "<p><b>Email</b>: ".$_SESSION['email']."<p>";
+   echo "<p>Hello ".$_SESSION['user'].'! [ <a href="logout.php">Log out</a> ]</p>';
+   echo "<p><b>E-mail</b>: ".$_SESSION['email'];
    
 
 ?>
-<form action="logout.php">
-<input type="submit" Value="log out" />
-</form>
 </body>
-
-
-
-
-
-
 </html>
