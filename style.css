@@ -9,20 +9,3 @@
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
 	
-	.button {
-    size: 20px;
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-    transition-duration: 0.4s;
-    font-size: 12px;
-    color:white;
-    border: 0px solid;
-    background-color: #008CBA;
-    padding: 15px 32px;
-    
-    }
-
-    .button:hover {
-    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
-    cursor: pointer;
-    color: white;
-    }
