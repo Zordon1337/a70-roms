@@ -72,7 +72,7 @@
 				if($ile_takich_maili>0)
 				{
 					$everything_OK=false;
-					$_SESSION['e_email']="Istnieje już konto przypisane do tego adresu e-mail!";
+					$_SESSION['e_email']="there is already account with that mail";
 				}		
 
 				
@@ -133,6 +133,21 @@
 			margin-top: 10px;
 			margin-bottom: 10px;
 		}
+		.button {
+    	size: 20px;
+    	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    	transition-duration: 0.4s;
+    	font-size: 12px;
+    	color:white;
+    	border: 0px solid;
+    	background-color: #4CAF50;
+    	padding: 15px 32px;
+    	}
+    	.button:hover {
+    	box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    	cursor: pointer;
+    	color: white;
+    	}
 	</style>
 </head>
 
@@ -201,7 +216,7 @@
 		
 		<br />
 		
-		<input type="submit" value="Zarejestruj się" />
+		<input class="button" type="submit" value="Zarejestruj się" />
 		
 	</form>
 

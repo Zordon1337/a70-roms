@@ -2,7 +2,7 @@
 
   $host = "localhost";
   $db_user = "root";
-  $db_password = "";
-  $db_name = "a70_logins";
+  $db_password = "123";
+  $db_name = "a70_roms";
 
 ?>

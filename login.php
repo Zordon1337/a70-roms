@@ -5,7 +5,7 @@ i'm to lazy to translate prefixes lol
 */
 	session_start();
 	
-	if ((!isset($_POST['Username'])) || (!isset($_POST['Password'])))
+	if ((!isset($_POST['user'])) || (!isset($_POST['Password'])))
 	{
 		header('Location: index.php');
 		exit();
@@ -22,16 +22,16 @@ i'm to lazy to translate prefixes lol
 	else
 	{
 		$email = $_POST['email'];
-		$Username = $_POST['Username'];
+		$user = $_POST['user'];
 		$Password = $_POST['Password'];
 		$email = $_POST['email'];
 		
-		$Username = htmlentities($Username, ENT_QUOTES, "UTF-8");
+		$user = htmlentities($user, ENT_QUOTES, "UTF-8");
 		$Password = htmlentities($Password, ENT_QUOTES, "UTF-8");
 	
 		if ($result = @$polaczenie->query(
 		sprintf("SELECT * FROM users WHERE user='%s' AND pass='%s'",
-		mysqli_real_escape_string($polaczenie,$Username),
+		mysqli_real_escape_string($polaczenie,$user),
 		mysqli_real_escape_string($polaczenie,$Password))))
 		{
 			$ilu_userow = $result->num_rows;
@@ -41,7 +41,7 @@ i'm to lazy to translate prefixes lol
 				
 				$wiersz = $result->fetch_assoc();
 				$_SESSION['id'] = $wiersz['id'];
-				$_SESSION['Username'] = $wiersz['Username'];
+				$_SESSION['user'] = $wiersz['user'];
 				$_SESSION['Password'] = $wiersz['Password'];
 				$_SESSION['email'] = $wiersz['email'];
 
@@ -52,7 +52,7 @@ i'm to lazy to translate prefixes lol
 				
 			} else {
 				
-				$_SESSION['error'] = '<span style="color:red">Nieprawidłowy username lub hasło!</span>';
+				$_SESSION['error'] = '<span style="color:red">Nieprawidłowy user lub hasło!</span>';
 				header('Location: index.php');
 				
 			}

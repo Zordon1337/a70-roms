@@ -20,6 +20,7 @@
 
    echo "<p>Hello ".$_SESSION['user'].'! [ <a href="logout.php">Log out</a> ]</p>';
    echo "<p><b>E-mail</b>: ".$_SESSION['email'];
+   echo "<p>---<b>ROMS</b>---<p>"
    
 
 ?>
